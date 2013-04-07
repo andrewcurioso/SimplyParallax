@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parallax Advanced Star Field Scrolling Demo</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../jquery.simplyparallax.js"></script>
+	
+		<style>
+		body { margin: 0 0 0 0; background-color: #000; font-family: Helvetica, Ariel, Sans-Serif; color: #fff; }
+		h1 { margin: 10px 10px 5px 10px; }
+		p  { margin: 0 10px 10px 10px; max-width: 700px; } 
+		a { color: #fff; white-space: nowrap; }
+
+		#sky { height: 8000px; overflow: hidden; border-top: 1px solid #fff; border-bottom: 1px solid #fff; position: relative;}
+		
+		.layer { position: absolute; left: 0; top: 0; height: 8000px; width: 100%; z-index: 0; }
+		.layer.near { z-index: 15; }
+		.layer.far { z-index: -25; }
+		.layer.ships { z-index: 30; }
+		
+		.layer .star { position: absolute; width: 10px; height: 10px; border-radius: 10px; background-color: #ff0; }
+		.layer.near .star { width: 20px; height: 20px; border-radius: 20px; background-color: #f00; }
+		.layer.far .star { width: 5px; height: 5px; border-radius: 5px; background-color: #fff; }
+		
+		.ship { position: absolute; left: 40%; top: 3000px; z-index: 50; }
+		
+		p.end { text-align: center; max-width: 100%; height: 200px; margin: 20px; }
+		
+		#autoPilot { position: absolute; right: 20px; top: 20px; border: 1px solid #fff; padding: 5px; text-decoration: none; border-radius: 5px; }
+		#autoPilot:hover { background-color: #fff; color: #000; }
+		</style>
+		
+		<script>		
+		var starCount = 1000;
+		
+		function randomPosition( maxy ) {
+			return { top: Math.random()*maxy, left: Math.random()*100+"%" };
+		}
+		
+		$(document).ready(function(){
+		
+			$layer = $('.layer').not('.far, .near, .ships');
+			for ( i = 0; i < starCount; i++ ) {
+				$star = $('<div class="star"></div>').css(randomPosition(8000));
+				$layer.append($star);
+			}
+			
+			$layer = $('.layer.near');
+			for ( i = 0; i < starCount; i++ ) {
+				$star = $('<div class="star"></div>').css(randomPosition(24000));
+				$layer.append($star);
+			}
+
+			$layer = $('.layer.far');
+			for ( i = 0; i < starCount; i++ ) {
+				$star = $('<div class="star"></div>').css(randomPosition(3000));
+				$layer.append($star);
+			}
+
+			$ship = $('.layer.ships .ship').first();
+			$ship.css(randomPosition());
+			
+			$layer = $('.layer.ships');
+			for ( i = 0; i<10; i++ ) {
+			  $newShip = $ship.clone();
+			  $ship.css(randomPosition(24000));
+			  $layer.append($newShip);
+			}
+			
+
+			$('#autoPilot').show().click(function() { $('html, body').animate({ scrollTop: 8000 },20000); return false; });
+
+			$('.layer, #mothership').simplyParallax();
+		});
+		</script>
+    </head>
+    <body>
+    	<h1>Star Field Demo</h1>
+    	<p>
+    	  This demo is s more production ready version of the <a href="starfield.html">Star Field</a> example.<br />
+    	  The star field is populated with <script>document.write(starCount*3);</script> stars. Animation happens in layers so it is much faster than
+    	  the other star field example.
+    	  The red stars are in the foreground and will appear
+    	  to move faster than the others. The white stars are in the background. And the yellow stars move
+    	  at the same speed as the scrolling. Watch out for space ships.
+    	</p>
+    	<a href="#" id="autoPilot">Auto Pilot</a>
+    	<div id="sky">
+    		<div class="layer far"></div>
+    		<div class="layer"></div>
+    		<div class="layer near"></div>
+    		<div class="layer ships">
+
+				<svg class="ship"
+				   xmlns:svg="http://www.w3.org/2000/svg"
+				   xmlns="http://www.w3.org/2000/svg"
+				   width="744.09448819"
+				   height="1052.3622047"
+				   version="1.1"
+				  >
+					<path
+					  style="fill:#ff2a2a;stroke:none"
+					  d="m 46.718748,990.15905 0.125,1.78125 -0.125,0 3.21875,43.2656 7.67188,-10.3593 4.125,27.5156 0.17187,-1.2969 0.1875,1.2969 4.125,-27.5156 7.67188,10.3593 3.21875,-43.2656 -0.125,0 0.125,-1.78125 -15.20313,0.89062 -15.1875,-0.89062 z"
+					  />
+					<path
+					   style="fill:#ececec;fill-opacity:1;stroke:#ffffff;stroke-width:0.5"
+					   d="m 61.921878,795.34655 c -2.1716,0 -3.9375,1.7659 -3.9375,3.9375 0,1.99797 1.49232,3.63956 3.42187,3.89062 l -1.84375,16.28125 c -20.22158,2.75081 -36.249998,40.59129 -36.249998,86.875 0,2.74346 0.06175,5.46202 0.171875,8.14063 C 9.326431,931.07499 0.25,956.64254 0.25,985.33092 c 14.871441,-19.97006 22.89667,-30.70942 28.0625,-36.125 3.163455,12.57757 7.675754,23.19934 13.093748,30.875 l -2.1875,19.375 45.39063,0 -2.1875,-19.375 c 5.10445,-7.23049 9.40489,-17.07042 12.53125,-28.70312 5.560682,5.2292 13.757022,15.32834 28.625002,33.95312 0,-28.6801 -9.06783,-54.23992 -23.21875,-70.84375 0.11054,-2.6836 0.15625,-5.40754 0.15625,-8.15625 0,-46.28371 -16.012802,-84.12419 -36.234382,-86.875 l -1.84375,-16.28125 c 1.92211,-0.25778 3.40625,-1.89794 3.40625,-3.89062 0,-2.1716 -1.75027,-3.9375 -3.92187,-3.9375 z"
+					   />
+				</svg>
+
+    		</div>
+    	
+			<svg id="mothership" class="ship"
+			   xmlns:svg="http://www.w3.org/2000/svg"
+			   xmlns="http://www.w3.org/2000/svg"
+			   width="744.09448819"
+			   height="1052.3622047"
+			   version="1.1">
+				<path
+				   style="fill:#ff2a2a;stroke:none"
+				   d="m 93.437498,927.95593 0.25,3.5625 -0.25,0 6.4375,86.53127 15.343752,-20.71877 8.25,55.03127 0.34375,-2.5938 0.375,2.5938 8.25,-55.03127 15.34375,20.71877 6.4375,-86.53127 -0.25,0 0.25,-3.5625 -30.40625,1.78125 -30.375002,-1.78125 z"
+				   />
+				<path
+				   style="fill:#ececec;fill-opacity:1;stroke:#ffffff;stroke-width:1"
+				   d="m 123.84375,538.33093 c -4.3432,0 -7.875,3.5318 -7.875,7.875 0,3.99595 2.98465,7.27913 6.84375,7.78125 l -3.6875,32.5625 c -40.443162,5.50162 -72.500002,81.18257 -72.500002,173.75 0,5.48691 0.12349,10.92403 0.34375,16.28125 C 18.65286,809.78781 0.5,860.92292 0.5,918.29968 c 29.74288,-39.94012 45.793338,-61.41884 56.124998,-72.25 6.32691,25.15513 15.35151,46.39867 26.1875,61.75 l -4.375,38.75 90.781252,0 -4.375,-38.75 c 10.20891,-14.46098 18.80978,-34.14085 25.0625,-57.40625 11.12136,10.45841 27.51405,30.65669 57.25,67.90625 0,-57.3602 -18.13565,-108.47985 -46.4375,-141.6875 0.22109,-5.36721 0.3125,-10.81509 0.3125,-16.3125 0,-92.56743 -32.02559,-168.24838 -72.46875,-173.75 l -3.6875,-32.5625 c 3.84421,-0.51556 6.8125,-3.79589 6.8125,-7.78125 0,-4.3432 -3.50055,-7.875 -7.84375,-7.875 z"
+				   />
+			</svg>
+
+    	</div>
+    	<p class="end">
+    	  the end of the universe
+    	</p>
+    </body>
+</html>
