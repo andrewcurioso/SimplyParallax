@@ -23,7 +23,7 @@
   function _setPosition( scrollTop, $target ) {
   
     // How many pixels need to be scrolled before the parent element is in position.
-    var d = $target.parent().offset().top-scrollTop;
+    var d = $target.parent().offset().top-scrollTop-$target.data('parallax-home');
     
     // The z-index of the element
     // Positive is foreground and negative is background
@@ -34,7 +34,7 @@
     // Background elements move less than one pixel per actual pixel
     var o = z < 0 ? -d*(1+(z/maxIndex)) : d*(z/maxIndex*maxSpeed);
     
-    $target.css('top', $target.data('origionalOffset')+o);
+    $target.css('top', $target.data('parallax-origin')+o);
   }
 
   $(window).scroll(function(eventObject) {
@@ -45,20 +45,21 @@
     });
   });
 
-  $.fn.simplyParallax = function( options ) {
-    var settings = $.extend( {
-      'min'  : -1000,
-      'max'  : 1000,
-      'home' : 0
-    }, options);
-
+  $.fn.simplyParallax = function() {
+  
 	!$_targets ? $_targets = this : $_targets.add(this);	
 	
 	var scrollTop = $(document).scrollTop();
 	
     this.each(function() {
       $this = $(this);
-      $this.data('origionalOffset', $this.position().top);
+      $this.data('parallax-origin', $this.position().top);
+      
+      var home = $this.parent().attr("data-parallax-home");
+      if ( home === undefined ) home = 0;
+      if ( home === 'onload' ) home = $this.parent().position().top+scrollTop;
+      
+      $this.data('parallax-home', home);
       _setPosition(scrollTop, $this);
       $this.css({ 'position':'absolute' });
     });

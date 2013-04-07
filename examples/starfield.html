@@ -37,7 +37,6 @@
 		$(document).ready(function(){
 			$sky = $('#sky');
 
-
 			for ( i = 0; i < starCount; i++ ) {
 				$star = $('<div class="star"></div>').css(randomPosition(8000));
 				$sky.append($star);
@@ -69,7 +68,7 @@
     	  at the same speed as the scrolling. Watch out for space ships.
     	</p>
     	<a href="#" id="autoPilot">Auto Pilot</a>
-    	<div id="sky">
+    	<div id="sky" data-parallax-home="onload">
 			<svg id="ship"
 			   xmlns:svg="http://www.w3.org/2000/svg"
 			   xmlns="http://www.w3.org/2000/svg"
