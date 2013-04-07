@@ -34,7 +34,10 @@
     // Background elements move less than one pixel per actual pixel
     var o = z < 0 ? -d*(1+(z/maxIndex)) : d*(z/maxIndex*maxSpeed);
     
-    $target.css('top', $target.data('parallax-origin')+o);
+    if ( $target.css('position') == 'relative' )
+      $target.css('top', o);
+    else
+      $target.css('top', $target.data('parallax-origin')+o);
   }
 
   $(window).scroll(function(eventObject) {
@@ -57,11 +60,15 @@
       
       var home = $this.parent().attr("data-parallax-home");
       if ( home === undefined ) home = 0;
-      if ( home === 'onload' ) home = $this.parent().position().top+scrollTop;
+      if ( home === 'onload' ) home = $this.parent().position().top;
       
       $this.data('parallax-home', home);
+
+      if ( $this.css('position') != 'absolute' )
+        $this.css({ 'position':'relative' });
+
       _setPosition(scrollTop, $this);
-      $this.css({ 'position':'absolute' });
+      
     });
 
   };

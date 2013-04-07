@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parallax Blog Scrolling Demo</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../jquery.simplyparallax.js"></script>
+	
+		<style>
+		* { margin: 0; padding: 0; }
+		
+		body { text-align: center; font-family: Helvetica, Ariel, Sans-Serif; font-size: 14px; }
+		
+		header, section { text-align: left; width: 700px; margin: 0 auto; }
+		
+		header { font-size: 2em; line-height: 100px; }
+		
+		footer { margin: 20px 0 0 0; padding-bottom: 800px; }
+
+		section article { margin: 0 0 2em 0; position: relative; }
+
+		section article img { float: right; z-index: 10; margin: 0 0 20px 20px; }
+		
+		section article h1 { margin: 0 0 0.5em 0; font-size: 1.25em; }
+		
+		section article p { margin: 0 0 1em 0; }
+		
+		section article p.lorem-ipsum { color: #888; }
+		</style>
+		
+		<script>		
+				
+		$(document).ready(function(){
+			$('img').simplyParallax();
+		});
+		</script>
+    </head>
+    <body>
+		<header>Example Blog</header>
+		
+		<section>
+			<article data-parallax-home="onload">
+				<h1>About this example</h1>
+				<img src="http://placekitten.com/g/200/300" />
+				<p>
+					This example showcases parallax scrolling within text using
+					relative positioning. All the text except for this paragraph is
+					random <a href="http://www.lipsum.com/">lorum ipsum</a>.
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+			</article>
+			<article>
+				<h1>Example Article 2</h1>
+				<img src="http://placekitten.com/g/200/200" />
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+			</article>
+			<article>
+				<h1>Example Article 3</h1>
+				<img src="http://placekitten.com/g/300/150" />
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+			</article>
+			<article>
+				<h1>Example Article 4</h1>
+				<img src="http://placekitten.com/g/300/250" />
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+				<p class="lorem-ipsum">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
+				  ante vitae ligula lobortis non dapibus lectus blandit. Duis semper massa in
+				  risus cursus aliquet. Morbi consectetur arcu eu ipsum feugiat tempus. Fusce
+				  sem risus, accumsan eget cursus eget, tincidunt sit amet magna. Aliquam
+				  malesuada consequat elit ac consectetur. Nulla mollis aliquam sapien at
+				  gravida. Nulla vel risus elit. Sed euismod erat in lorem posuere a scelerisque
+				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
+				</p>
+			</article>
+		</section>
+		<footer>
+			Images courtesy of the adorable <a href="http://placekitten.com/">{placekitten}</a>.
+		</footer>
+    </body>
+</html>
