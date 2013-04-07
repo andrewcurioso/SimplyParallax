@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parallax Scrolling Demo</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../jquery.simplyparallax.js"></script>
+	
+		<style>
+		body { margin: 0 0 0 0; background-color: #000; font-family: Helvetica, Ariel, Sans-Serif; color: #fff; }
+		h1 { margin: 10px 10px 5px 10px; }
+		p  { margin: 0 10px 10px 10px; max-width: 700px; } 
+
+		#sky { height: 8000px; overflow: hidden; border-top: 1px solid #fff; border-bottom: 1px solid #fff; position: relative;}
+		
+		.star { position: absolute; width: 10px; height: 10px; border-radius: 10px; background-color: #ff0; z-index: 0; }
+		
+		.star.near { z-index: 25; width: 20px; height: 20px; border-radius: 20px; background-color: #f00; }
+		.star.far { z-index: -25; width: 5px; height: 5px; border-radius: 5px; background-color: #fff; }
+		
+		#ship { position: absolute; left: 40%; top: 3000px; z-index: 50; }
+		
+		p.end { text-align: center; max-width: 100%; height: 200px; margin: 20px; }
+		
+		#autoPilot { position: absolute; right: 20px; top: 20px; border: 1px solid #fff; color: #fff; padding: 5px; text-decoration: none; border-radius: 5px; }
+		
+		</style>
+		
+		<script>		
+		$(document).ready(function(){
+			$sky = $('#sky');
+
+			for ( i = 0; i < 200; i++ ) {
+				$star = $('<div class="star"></div>').css({ top: Math.random()*8000, left: Math.random()*100+"%" });
+				$sky.append($star);
+			}
+			
+			for ( i = 0; i < 200; i++ ) {
+				$star = $('<div class="star near"></div>').css({ top: Math.random()*24000, left: Math.random()*100+"%" });
+				$sky.append($star);
+			}
+
+			for ( i = 0; i < 200; i++ ) {
+				$star = $('<div class="star far"></div>').css({ top: Math.random()*3000, left: Math.random()*100+"%" });
+				$sky.append($star);
+			}
+
+			$('#autoPilot').show().click(function() { $('html, body').animate({ scrollTop: 8000 },20000); return false; });
+
+			$('.star, #ship').simplyParallax();
+		});
+		</script>
+    </head>
+    <body>
+    	<h1>Star Field Demo</h1>
+    	<p>
+    	  This demo showcases parallax scrolling with foreground and background objects as well as performance with hundreds of objects.<br />
+    	  The star field is populated with 600 stars. The red stars are in the foreground and will appear
+    	  to move faster than the others. The white stars are in the background. And the yellow stars move
+    	  at the same speed as the scrolling. Watch out for space ships.
+    	</p>
+    	<a href="#" id="autoPilot">Auto Pilot</a>
+    	<div id="sky">
+		<svg id="ship"
+		   xmlns:svg="http://www.w3.org/2000/svg"
+		   xmlns="http://www.w3.org/2000/svg"
+		   width="744.09448819"
+		   height="1052.3622047"
+		   version="1.1">
+			<path
+			   style="fill:#ff2a2a;stroke:none"
+			   d="m 93.437498,927.95593 0.25,3.5625 -0.25,0 6.4375,86.53127 15.343752,-20.71877 8.25,55.03127 0.34375,-2.5938 0.375,2.5938 8.25,-55.03127 15.34375,20.71877 6.4375,-86.53127 -0.25,0 0.25,-3.5625 -30.40625,1.78125 -30.375002,-1.78125 z"
+			   />
+			<path
+			   style="fill:#ececec;fill-opacity:1;stroke:#ffffff;stroke-width:1"
+			   d="m 123.84375,538.33093 c -4.3432,0 -7.875,3.5318 -7.875,7.875 0,3.99595 2.98465,7.27913 6.84375,7.78125 l -3.6875,32.5625 c -40.443162,5.50162 -72.500002,81.18257 -72.500002,173.75 0,5.48691 0.12349,10.92403 0.34375,16.28125 C 18.65286,809.78781 0.5,860.92292 0.5,918.29968 c 29.74288,-39.94012 45.793338,-61.41884 56.124998,-72.25 6.32691,25.15513 15.35151,46.39867 26.1875,61.75 l -4.375,38.75 90.781252,0 -4.375,-38.75 c 10.20891,-14.46098 18.80978,-34.14085 25.0625,-57.40625 11.12136,10.45841 27.51405,30.65669 57.25,67.90625 0,-57.3602 -18.13565,-108.47985 -46.4375,-141.6875 0.22109,-5.36721 0.3125,-10.81509 0.3125,-16.3125 0,-92.56743 -32.02559,-168.24838 -72.46875,-173.75 l -3.6875,-32.5625 c 3.84421,-0.51556 6.8125,-3.79589 6.8125,-7.78125 0,-4.3432 -3.50055,-7.875 -7.84375,-7.875 z"
+			   />
+		</svg>
+
+    	</div>
+    	<p class="end">
+    	  the end of the universe
+    	</p>
+    </body>
+</html>
