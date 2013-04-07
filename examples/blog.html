@@ -42,9 +42,15 @@
 				<h1>About this example</h1>
 				<img src="http://placekitten.com/g/200/300" />
 				<p>
-					This example showcases parallax scrolling within text using
-					relative positioning. All the text except for this paragraph is
-					random <a href="http://www.lipsum.com/">lorum ipsum</a>.
+				  This example showcases parallax scrolling within text using
+				  relative positioning. It also demonstrates a drawback of parallax
+				  scrolling which is that if the element cannot be scrolled to its
+				  home position all the parallax child elements will never be able to
+				  get completely into position. Hense the huge padding on the bottom of
+				  this page.
+				<p>
+				  All the rest of the text is
+				  standard <a href="http://www.lipsum.com/">lorum ipsum</a>.
 				</p>
 				<p class="lorem-ipsum">
 				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor
@@ -74,7 +80,7 @@
 				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
 				</p>
 			</article>
-			<article>
+			<article data-parallax-home="40">
 				<h1>Example Article 2</h1>
 				<img src="http://placekitten.com/g/200/200" />
 				<p class="lorem-ipsum">
@@ -105,7 +111,7 @@
 				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
 				</p>
 			</article>
-			<article>
+			<article data-parallax-home="40">
 				<h1>Example Article 3</h1>
 				<img src="http://placekitten.com/g/300/150" />
 				<p class="lorem-ipsum">
@@ -136,7 +142,7 @@
 				  diam tincidunt. In eget tristique velit. Curabitur varius mattis diam eget porta. 
 				</p>
 			</article>
-			<article>
+			<article data-parallax-home="40">
 				<h1>Example Article 4</h1>
 				<img src="http://placekitten.com/g/300/250" />
 				<p class="lorem-ipsum">
